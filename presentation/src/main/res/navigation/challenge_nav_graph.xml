@@ -2,13 +2,13 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
-  android:id="@+id/authentication_nav_graph"
-  app:startDestination="@id/splashFragment">
+  android:id="@+id/challenge_nav_graph"
+  app:startDestination="@id/exchangeFragment">
 
   <fragment
-    android:id="@+id/splashFragment"
+    android:id="@+id/exchangeFragment"
     android:name="com.code.challenge.features.fragments.ExchangeFragment"
-    android:label="fragment_splash"
-    tools:layout="@layout/fragment_splash" />
+    android:label="fragment_exchange"
+    tools:layout="@layout/fragment_exchange" />
 
 </navigation>

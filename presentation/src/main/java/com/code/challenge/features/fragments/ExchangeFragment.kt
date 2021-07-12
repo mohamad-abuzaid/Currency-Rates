@@ -81,10 +81,12 @@ class ExchangeFragment : BaseFragmentViewBinding<FragmentExchangeBinding>() {
       }
 
       override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        exchangeFragmentViewModel.fetchLiveRates(
-          BuildConfig.API_KEY,
-          currenciesListAdapter?.getItem(position) ?: "USD",
-        )
+        if (position != 0) {
+          exchangeFragmentViewModel.fetchLiveRates(
+            BuildConfig.API_KEY,
+            currenciesListAdapter?.getItem(position) ?: "USD",
+          )
+        }
       }
     }
   }
@@ -134,7 +136,6 @@ class ExchangeFragment : BaseFragmentViewBinding<FragmentExchangeBinding>() {
         result.data?.let {
           updateCurrencies(it.keys.toMutableList())
         }
-        exchangeFragmentViewModel.fetchLiveRates(BuildConfig.API_KEY)
       }
       else -> {
         activity?.showProgressWheel(false)
@@ -176,6 +177,7 @@ class ExchangeFragment : BaseFragmentViewBinding<FragmentExchangeBinding>() {
   private fun updateCurrencies(currencies: MutableList<String>) {
     currenciesListAdapter?.clear()
     currenciesListAdapter?.addAll(currencies)
+    currenciesListAdapter?.insert(getString(R.string.select_currency), 0)
     currenciesListAdapter?.notifyDataSetChanged()
   }
 

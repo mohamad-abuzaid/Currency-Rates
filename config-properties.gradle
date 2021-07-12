@@ -1,0 +1,102 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Config                                                                                         //
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+class Config {
+  Properties commonProperties
+  Properties keystoreProperties
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Pull in config properties                                                                      //
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ext {
+  config = new Config()
+  def basePath = rootDir.absolutePath + "/config/"
+
+  config.commonProperties = new Properties()
+  def commonPropertiesFileName = "common.properties"
+  config.
+      commonProperties.
+      load(new FileInputStream(rootProject.file((basePath + commonPropertiesFileName))))
+
+  config.keystoreProperties = new Properties()
+  def keystorePropertiesFileName = "keystore.properties"
+  config.
+      keystoreProperties.
+      load(new FileInputStream(rootProject.file((basePath + keystorePropertiesFileName))))
+}
+
+android {
+  signingConfigs {
+    release {
+      try {
+        keyAlias config.keystoreProperties['keyAlias']
+        keyPassword config.keystoreProperties['keyPassword']
+        storeFile file(config.keystoreProperties['storeFile'])
+        storePassword config.keystoreProperties['storePassword']
+      } catch (ignored) {
+        throw new InvalidUserDataException(
+            "You should define KEYSTORE_PASSWORD and KEY_PASSWORD in keystore.properties.")
+      }
+    }
+
+    staging {
+      try {
+        keyAlias config.keystoreProperties['keyAlias']
+        keyPassword config.keystoreProperties['keyPassword']
+        storeFile file(config.keystoreProperties['storeFile'])
+        storePassword config.keystoreProperties['storePassword']
+      } catch (ignored) {
+        throw new InvalidUserDataException(
+            "You should define KEYSTORE_PASSWORD and KEY_PASSWORD in keystore.properties.")
+      }
+    }
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled true
+      debuggable false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+      ndk {
+        debugSymbolLevel 'FULL'
+      }
+
+      signingConfig signingConfigs.release
+
+      buildConfigField "String", "BASE_URL", "\"${config.commonProperties.release_base_url}\""
+      buildConfigField "String", "API_KEY", "\"${config.commonProperties.release_api_key}\""
+    }
+
+    staging {
+      debuggable true
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+      signingConfig signingConfigs.staging
+      matchingFallbacks = ['release', 'debug']
+
+      buildConfigField "String", "BASE_URL", "\"${config.commonProperties.staging_base_url}\""
+      buildConfigField "String", "API_KEY", "\"${config.commonProperties.staging_api_key}\""
+    }
+
+    debug {
+      debuggable true
+      ext.enableCrashlytics = false
+
+      buildConfigField "String", "BASE_URL", "\"${config.commonProperties.develop_base_url}\""
+      buildConfigField "String", "API_KEY", "\"${config.commonProperties.develop_api_key}\""
+    }
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+
+  kotlinOptions {
+    jvmTarget = "1.8"
+  }
+}

@@ -1,0 +1,142 @@
+def Group(Closure closure) {
+  closure.delegate = dependencies
+  return closure
+}
+
+ext {
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////
+  // KOTLIN                                                                                     //
+  ////////////////////////////////////////////////////////////////////////////////////////////////
+
+  kotlin = Group {
+    api deps.kotlin.lib
+    api deps.kotlin.reflect
+  }
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////
+  // DEBUGGING                                                                                  //
+  ////////////////////////////////////////////////////////////////////////////////////////////////
+
+  debugging = Group {
+    implementation deps.timber
+  }
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////
+  // DAGGER2                                                                                     //
+  ////////////////////////////////////////////////////////////////////////////////////////////////
+
+  dagger = Group {
+    implementation deps.dagger.dagger
+    kapt deps.dagger.compiler
+    implementation deps.dagger.android
+    implementation deps.dagger.support
+    kapt deps.dagger.processor
+  }
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////
+  // NETWORKING                                                                                 //
+  ////////////////////////////////////////////////////////////////////////////////////////////////
+
+  networking = Group {
+    api deps.retrofit.retrofit
+    api deps.retrofit.adapters
+    api deps.retrofit.gson
+    api deps.okHttp.okHttp
+    api deps.okHttp.logging
+    implementation(deps.okHttp.prettyLogger) {
+      exclude group: 'org.json', module: 'json'
+    }
+  }
+
+  jsonParse = Group {
+    api deps.google_gson
+  }
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////
+  // RX                                                                                         //
+  ////////////////////////////////////////////////////////////////////////////////////////////////
+
+  rx = Group {
+    api deps.rx.android
+    api deps.rx.kotlin
+    api deps.rx.java
+    api deps.codec
+  }
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////
+  // ARCHITECTURE COMPONENTS                                                                    //
+  ////////////////////////////////////////////////////////////////////////////////////////////////
+
+  lifecycle = Group {
+    implementation deps.lifecycle.viewModel
+    implementation deps.lifecycle.liveData
+    implementation deps.lifecycle.streams
+    implementation deps.lifecycle.compiler
+    implementation deps.lifecycle.process
+  }
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////
+  // VIEW                                                                                       //
+  ////////////////////////////////////////////////////////////////////////////////////////////////
+
+  view = Group {
+    api deps.support.core_ktx
+    api deps.support.appcompat
+    implementation deps.navigation.navigationFragment
+    implementation deps.navigation.navigationUi
+    implementation deps.navigation.dynamic
+    implementation deps.support.constraint
+    implementation deps.support.recyclerView
+    implementation deps.support.materialDesign
+    implementation deps.support.activity
+    implementation deps.support.multidex
+    implementation deps.support.fragment
+    implementation deps.support.legacy
+    implementation deps.glide.glide
+    implementation(deps.glide.glide_okhttp) {
+      exclude group: 'glide-parent'
+    }
+    kapt(deps.glide.compiler) {
+      exclude group: "com.android.support"
+    }
+    implementation deps.rxbinding2
+    implementation deps.autoFitTextView
+  }
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////
+  // TOOLS                                                                                      //
+  ////////////////////////////////////////////////////////////////////////////////////////////////
+
+  utils = Group {
+    implementation deps.rxNetwork
+  }
+
+  tools = Group {
+    kapt deps.parceler.parceler
+    implementation deps.parceler.api
+    implementation deps.rxPermissions
+  }
+
+  security = Group {
+    implementation deps.security.securityCrypto
+  }
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////
+  // TESTING                                                                                    //
+  ////////////////////////////////////////////////////////////////////////////////////////////////
+
+  testing = Group {
+    testImplementation deps.mockito.core
+    testImplementation deps.mockito.inline
+    testImplementation deps.mockito.kotlin
+    testImplementation deps.lifecycle.testing
+
+    androidTestImplementation(deps.runner) {
+      exclude group: 'com.android.support', module: 'support-annotations'
+    }
+    testImplementation deps.androidxJunit
+    androidTestImplementation deps.androidxJunit
+    testImplementation deps.mockwebserver
+  }
+}

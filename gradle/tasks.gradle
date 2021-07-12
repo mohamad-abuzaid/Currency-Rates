@@ -1,0 +1,17 @@
+//apply from: '../gradle/ktlint.gradle'
+
+task installGitHook(type: Copy) {
+  from file("$rootProject.rootDir/scripts/pre-commit")
+  into file("$rootProject.rootDir/.git/hooks")
+  fileMode 0777
+}
+
+if (!System.getenv('CI')) {
+  println("This is not CI.....")
+//  apply from: "$rootProject.rootDir/gradle/ktlint.gradle"
+
+  tasks.getByPath(':presentation:preBuild').dependsOn installGitHook
+//  tasks.getByPath(':presentation:preBuild').dependsOn ktlintFormat
+}
+
+//check.dependsOn ktlint

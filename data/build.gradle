@@ -1,0 +1,21 @@
+apply plugin: 'com.android.library'
+apply from: '../config-android.gradle'
+apply from: '../config-properties.gradle'
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// DEPENDENCIES                                                                                   //
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+dependencies {
+  implementation project(':common')
+  implementation project(':domain')
+
+  kotlin()
+  lifecycle()
+  jsonParse()
+  networking()
+  rx()
+  dagger()
+  debugging()
+  testing()
+}

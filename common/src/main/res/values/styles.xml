@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+  <!-- Base application theme. -->
+  <style name="CodeAppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <!-- Customize your theme here. -->
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    <item name="colorAccent">@color/colorAccent</item>
+    <item name="android:windowActionBarOverlay">true</item>
+    <item name="textAllCaps">false</item>
+    <item name="fontFamily">@font/lato_regular</item>
+    <item name="materialButtonStyle">@style/Widget.MaterialComponents.Button.Default</item>
+    <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTransparentTheme</item>
+    <item name="android:windowBackground">@color/white</item>
+    <!--    fixme consider removing ltr layoutDirection when app support AR language-->
+    <item name="android:layoutDirection">ltr</item>
+  </style>
+
+  <style name="LibAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <!-- Customize your theme here. -->
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    <item name="colorAccent">@color/colorAccent</item>
+    <item name="android:colorBackground">@color/white</item>
+    <item name="android:windowBackground">@color/white</item>
+    <item name="tabStyle">@style/PickerTabLayout</item>
+    <item name="windowActionBar">false</item>
+    <item name="windowNoTitle">true</item>
+  </style>
+
+  <style name="PickerTabLayout" parent="Widget.Design.TabLayout">
+    <item name="tabBackground">@color/colorPrimary</item>
+    <item name="tabSelectedTextColor">@color/white</item>
+    <item name="tabTextColor">@color/white</item>
+    <item name="tabGravity">fill</item>
+    <item name="tabMaxWidth">0dp</item>
+  </style>
+
+
+  <style name="SplashAppTheme.NoActionBar" parent="CodeAppTheme">
+    <item name="windowActionBar">false</item>
+    <item name="windowNoTitle">true</item>
+    <item name="android:textColorHint">@color/main_grey</item>
+    <item name="colorControlActivated">@color/white_smoke</item>
+    <item name="android:autofilledHighlight" tools:targetApi="o">@android:color/transparent</item>
+    <item name="android:ambientShadowAlpha">0.05</item>
+    <item name="android:spotShadowAlpha">0.05</item>
+    <item name="android:windowBackground">@color/main_blue</item>
+  </style>
+
+  <style name="MainAppTheme.NoActionBar" parent="CodeAppTheme">
+    <item name="windowActionBar">false</item>
+    <item name="windowNoTitle">true</item>
+    <item name="android:textColorHint">@color/main_grey</item>
+    <item name="colorControlActivated">@color/path_grey</item>
+    <item name="android:autofilledHighlight" tools:targetApi="o">@android:color/transparent</item>
+    <item name="android:ambientShadowAlpha">0.05</item>
+    <item name="android:spotShadowAlpha">0.05</item>
+  </style>
+
+  <style name="DialogFragmentTheme" parent="Theme.MaterialComponents.Light.Dialog">
+    <item name="android:windowTranslucentStatus">true</item>
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowIsFloating">true</item>
+    <item name="android:windowCloseOnTouchOutside">true</item>
+  </style>
+
+  <style name="DialogActivityTheme" parent="Theme.MaterialComponents.Light.Dialog">
+    <item name="windowNoTitle">true</item>
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    <item name="colorAccent">@color/colorAccent</item>
+    <item name="android:paddingRight">0dp</item>
+    <item name="android:paddingLeft">0dp</item>
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">match_parent</item>
+    <item name="android:windowNoTitle">true</item>
+  </style>
+
+  <style name="TextInputStyleFilled" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+    <item name="boxBackgroundColor">@color/white</item>
+    <item name="boxStrokeColor">@color/simple_grey</item>
+    <item name="boxStrokeWidth">@dimen/_1sdp</item>
+    <item name="android:textColor">@color/main_black</item>
+    <item name="android:textColorHint">@color/main_grey</item>
+    <item name="hintTextColor">@color/main_grey</item>
+    <item name="errorIconDrawable">@null</item>
+    <item name="fontFamily">@font/lato_bold</item>
+    <item name="android:textSize">12sp</item>
+    <item name="colorControlNormal">@color/dark_grey</item>
+    <item name="colorControlActivated">@color/dark_grey</item>
+  </style>
+
+  <style name="TextInputStyleOutlined" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+    <item name="boxBackgroundColor">@color/white</item>
+    <item name="boxStrokeColor">@color/simple_grey</item>
+    <item name="boxStrokeWidth">@dimen/_1sdp</item>
+    <item name="android:textColor">@color/main_black</item>
+    <item name="android:textColorHint">@color/main_grey</item>
+    <item name="hintTextColor">@color/main_grey</item>
+    <item name="fontFamily">@font/lato_bold</item>
+    <item name="android:textSize">12sp</item>
+    <item name="colorControlNormal">@color/dark_grey</item>
+    <item name="colorControlActivated">@color/dark_grey</item>
+  </style>
+
+  <style name="TextInputStyleOutlinedBorderless" parent="TextInputStyleOutlined">
+    <item name="boxStrokeWidth">0dp</item>
+  </style>
+
+  <style name="TextInputStyleOutlinedRounded" parent="TextInputStyleOutlined">
+    <item name="boxCornerRadiusBottomEnd">25dp</item>
+    <item name="boxCornerRadiusBottomStart">25dp</item>
+    <item name="boxCornerRadiusTopEnd">25dp</item>
+    <item name="boxCornerRadiusTopStart">25dp</item>
+  </style>
+
+  <style name="FilledExposedDropdownMenu" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">
+    <item name="boxBackgroundColor">@color/white</item>
+    <item name="boxStrokeColor">@color/simple_grey</item>
+    <item name="boxStrokeWidth">@dimen/_1sdp</item>
+    <item name="android:textColor">@color/main_black</item>
+    <item name="android:textColorHint">@color/main_grey</item>
+    <item name="hintTextColor">@color/main_grey</item>
+    <item name="fontFamily">@font/lato_bold</item>
+    <item name="android:textSize">12sp</item>
+    <item name="colorControlNormal">@color/dark_grey</item>
+    <item name="colorControlActivated">@color/colorPrimary</item>
+  </style>
+
+  <style name="FilledExposedDropdownMenuBorderless" parent="FilledExposedDropdownMenu">
+    <item name="boxStrokeWidth">0dp</item>
+  </style>
+
+  <style name="NormalEditTextTheme">
+    <item name="colorControlNormal">@color/main_grey</item>
+    <item name="colorControlActivated">@color/colorAccent</item>
+    <item name="colorControlHighlight">@color/colorAccent</item>
+  </style>
+
+  <style name="CodeBottomNavBar" parent="Widget.MaterialComponents.BottomNavigationView">
+    <item name="android:shadowColor">@color/black</item>
+    <item name="android:shadowRadius">5</item>
+    <item name="android:shadowDy">3</item>
+  </style>
+
+  <style name="CodeTabLayoutStyle" parent="Widget.MaterialComponents.TabLayout">
+    <item name="tabGravity">center</item>
+    <item name="tabIndicatorColor">@color/colorAccent</item>
+    <item name="tabIndicatorHeight">@dimen/_4sdp</item>
+    <item name="tabMode">scrollable</item>
+    <item name="tabSelectedTextColor">#FF333333</item>
+    <item name="tabTextColor">@color/colorAccent</item>
+  </style>
+
+  <style name="Base.Widget.MaterialComponents.TextView.HorizontalSeparator" parent="Base.Widget.MaterialComponents.TextView">
+    <item name="android:layout_width">@dimen/_1sdp</item>
+    <item name="android:background">@color/ugu_off_white</item>
+  </style>
+
+  <style name="Widget.MaterialComponents.Button.Default" parent="Widget.MaterialComponents.Button">
+    <item name="android:insetTop">0dp</item>
+    <item name="android:insetBottom">0dp</item>
+  </style>
+
+  <style name="Widget.MaterialComponents.Button.Default.Submit" parent="Widget.MaterialComponents.Button.Default">
+    <item name="android:textAppearance">@style/lato_14_bold</item>
+    <item name="backgroundTint">@color/main_green</item>
+    <item name="cornerRadius">@dimen/_8sdp</item>
+  </style>
+
+  <style name="TopOnlyRoundedAppearance">
+    <item name="cornerFamilyTopLeft">rounded</item>
+    <item name="cornerFamilyTopRight">rounded</item>
+    <item name="cornerSizeTopLeft">@dimen/_40sdp</item>
+    <item name="cornerSizeTopRight">@dimen/_40sdp</item>
+  </style>
+
+  <style name="roundedCorner10ImageView" parent="">
+    <item name="cornerFamily">rounded</item>
+    <item name="cornerSize">10%</item>
+  </style>
+
+  <style name="roundedCorner15ImageView" parent="">
+    <item name="cornerFamily">rounded</item>
+    <item name="cornerSize">15%</item>
+  </style>
+
+  <style name="roundedCorner20ImageView" parent="">
+    <item name="cornerFamily">rounded</item>
+    <item name="cornerSize">20%</item>
+    <item name="android:radius">@dimen/_10sdp</item>
+  </style>
+
+  <style name="roundedCorner30ImageView" parent="">
+    <item name="cornerFamily">rounded</item>
+    <item name="cornerSize">30%</item>
+  </style>
+
+  <style name="roundedCornerImageViewAvatar" parent="">
+    <item name="cornerFamily">rounded</item>
+    <item name="cornerSize">10%</item>
+  </style>
+
+  <style name="circularCornerImageView" parent="">
+    <item name="cornerFamily">rounded</item>
+    <item name="cornerSize">50%</item>
+  </style>
+
+  <style name="WriteOnImageEditText">
+    <item name="android:singleLine">true</item>
+    <item name="colorControlNormal">#FFFFFF</item>
+    <item name="colorControlActivated">#FFFFFF</item>
+    <item name="android:textColorPrimary">#FFFFFF</item>
+    <item name="android:textSize">14sp</item>
+  </style>
+
+  <style name="SearchEditTextTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <item name="colorControlNormal">@color/path_grey</item>
+    <item name="colorControlActivated">@color/light_grey</item>
+    <item name="colorControlHighlight">@color/light_grey</item>
+  </style>
+
+  <style name="AppTheme.MainButtonStyle" parent="Widget.AppCompat.Button.Colored">
+    <item name="android:layout_marginStart">@dimen/_16sdp</item>
+    <item name="android:layout_marginEnd">@dimen/_16sdp</item>
+    <item name="fontFamily">@font/lato_regular</item>
+    <item name="android:textColor">@color/white</item>
+    <item name="android:textSize">@dimen/_12sdp</item>
+    <item name="android:textAllCaps">false</item>
+  </style>
+
+  <style name="AppTheme.MainImageButtonStyle" parent="Widget.AppCompat.ImageButton">
+    <item name="android:layout_marginStart">@dimen/_16sdp</item>
+    <item name="android:layout_marginEnd">@dimen/_16sdp</item>
+    <item name="fontFamily">@font/lato_regular</item>
+    <item name="android:textColor">@color/white</item>
+    <item name="android:textSize">@dimen/_12sdp</item>
+    <item name="android:textAllCaps">false</item>
+  </style>
+
+  <style name="CodeAppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+  <style name="AppBottomSheetDialogTransparentTheme" parent="Theme.Design.Light.BottomSheetDialog">
+    <item name="bottomSheetStyle">@style/bottomSheetModelTransparentStyle</item>
+  </style>
+
+  <style name="bottomSheetModelTransparentStyle" parent="Widget.Design.BottomSheet.Modal">
+    <item name="android:background">@android:color/transparent</item>
+    <item name="colorAccent">@color/colorAccent</item>
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+  </style>
+
+  <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
+
+  <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
+
+  <style name="AppTheme.MaterialSwitch" parent="CodeAppTheme">
+    <item name="colorControlActivated">@color/coral_red</item>
+    <item name="colorControlNormal">@color/white_smoke</item>
+  </style>
+
+  <style name="tab_text" parent="@android:style/TextAppearance.Widget.TabWidget">
+    <item name="android:fontFamily">@font/lato_regular</item>
+  </style>
+
+  <style name="ShapeAppearanceOverlay.Button.Circle" parent="">
+    <item name="cornerFamily">rounded</item>
+    <item name="cornerSize">50%</item>
+  </style>
+
+  <style name="CustomRadioButton" parent="Theme.AppCompat.Light">
+    <item name="colorControlNormal">@color/main_grey</item>
+    <item name="colorControlActivated">@color/main_red</item>
+  </style>
+
+  <style name="ShapeAppearanceOverlay.MyApp.Button.Circle" parent="">
+    <item name="cornerFamily">rounded</item>
+    <item name="cornerSize">50%</item>
+  </style>
+
+  <style name="spinner_style">
+    <item name="android:paddingLeft">0dp</item>
+    <item name="android:dropDownWidth">wrap_content</item>
+    <item name="android:showDividers">none</item>
+    <item name="android:dividerHeight">0dp</item>
+    <item name="android:dropDownHeight">70dp</item>
+    <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+    <item name="android:dropDownSelector">@android:color/white</item>
+  </style>
+
+</resources>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+  <color name="colorPrimary">@color/main_black</color>
+  <color name="colorPrimaryDark">@color/main_black</color>
+  <color name="colorAccent">@color/main_red</color>
+
+  // new colors
+  <color name="white">#ffffff</color>
+  <color name="black">#000000</color>
+  <color name="blackdark">#161f27</color>
+  <color name="main_red">#e70000</color>
+  <color name="orange">#de350b</color>
+  <color name="coral_red">#fb3939</color>
+  <color name="main_black">#2b2b2b</color>
+  <color name="main_yellow">#ffbf00</color>
+  <color name="main_grey">#757575</color>
+  <color name="main_blue">#398dfb</color>
+  <color name="main_green">#45c17e</color>
+  <color name="midnight_blue">#211662</color>
+  <color name="dare_type">#1237bd</color>
+  <color name="white_smoke">#fbf6f6</color>
+  <color name="text_color">#4f4e56</color>
+  <color name="ugu_off_white">#f2f2f2</color>
+  <color name="ugu_off_white_darker">#f8f8f8</color>
+  <color name="dark_grey">#b1b0b0</color>
+  <color name="path_grey">#cccccc</color>
+  <color name="lighter_blue">#002f80</color>
+  <color name="lighter_gray">#1a000000</color>
+  <color name="light_green">#EAFBEA</color>
+  <color name="light_pink">#FFD2D3</color>
+  <color name="indicator_grey">#9a9a9a</color>
+  <color name="indicator_orange">#ed713c</color>
+  <color name="error_red">#e60001</color>
+
+  // overlay
+  <color name="trans_grey">#dbdbdb</color>
+  <color name="overlay_color">#402B2B2B</color>
+  <color name="transparent_white">#25FFFFFF</color>
+  <color name="light_grey">#40757575</color>
+  <color name="black_overlay">#66000000</color>
+  <color name="semi_black_transparent">#99000000</color>
+  <color name="transparent_background">#80000000</color>
+  <color name="transparent_gray">#07000000</color>
+
+  // reactions
+  <color name="reaction_love">#ff2e2e</color>
+  <color name="reaction_creativity">#36c0ff</color>
+  <color name="reaction_knowledge">#ffa700</color>
+  <color name="react_green">#12883b</color>
+
+  // Chat colors
+  <color name="warm_grey">#7f7f7f</color>
+  <color name="green_dark">#2da346</color>
+  <color name="off_white">#f7f7f7</color>
+  <color name="orange_light">#db412d</color>
+  <color name="dares_orange">#e88530</color>
+  <color name="dares_orange_dark">#b35c11</color>
+  <color name="dares_orange_light">#fcc701</color>
+  <color name="dares_orange_normal">#ff953a</color>
+  <color name="dares_orange_overlay">#C6F21515</color>
+  <color name="life_green">#5e8860</color>
+  <color name="life_green_dark">#045144</color>
+  <color name="chat_gray">#f4f4f4</color>
+  <color name="simple_grey">#f0f0f0</color>
+  <color name="chat_other_cell_color">#d3e7ff</color>
+  <color name="pro_shortly_color">#ffc6c6</color>
+  <color name="ugu_unlock_vault_color">#ffbaba</color>
+
+  //color picker library
+  <color name="blue_color_picker">#0066FF</color>
+  <color name="brown_color_picker">#AF593E</color>
+  <color name="green_color_picker">#01A368</color>
+  <color name="green_color">#4caf50</color>
+  <color name="orange_color_picker">#FF861F</color>
+  <color name="red_color_picker">#ED0A3F</color>
+  <color name="red_orange_color_picker">#FF3F34</color>
+  <color name="sky_blue_color_picker">#76D7EA</color>
+  <color name="violet_color_picker">#8359A3</color>
+  <color name="yellow_color_picker">#FBE870</color>
+  <color name="yellow_green_color_picker">#C5E17A</color>
+  <color name="middle_gray">#b1aec4</color>
+  <color name="top_gray">#a5a5a5</color>
+  <color name="dark_gray">#ededed</color>
+
+
+  <!--Withdraw colors-->
+  <color name="withdraw_red">#e60001</color>
+  <color name="withdraw_divider">#19000000</color>
+  <color name="withdraw_black">#cc000000</color>
+  <color name="withdraw_green">#219417</color>
+  <color name="withdraw_light_black">#b3000000</color>
+
+</resources>

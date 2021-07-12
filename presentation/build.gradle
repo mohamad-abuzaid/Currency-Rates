@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application'
+apply from: '../config-android.gradle'
+apply from: '../config-properties.gradle'
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// DEPENDENCIES                                                                                   //
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+android {
+  configurations {
+    all*.exclude group: 'org.aspectj', module: 'aspectjrt'
+  }
+  ndkVersion '22.0.7026061'
+
+  buildTypes {
+    release {
+      shrinkResources true
+    }
+
+    staging {
+      applicationIdSuffix '.staging'
+      versionNameSuffix '-Staging'
+    }
+
+    debug {
+      applicationIdSuffix '.debug'
+      versionNameSuffix '-DEBUG'
+    }
+  }
+}
+
+dependencies {
+  implementation project(':data')
+  implementation project(':domain')
+  implementation project(':common')
+
+  kotlin()
+  lifecycle()
+  utils()
+  dagger()
+  tools()
+  security()
+  view()
+  debugging()
+  testing()
+}

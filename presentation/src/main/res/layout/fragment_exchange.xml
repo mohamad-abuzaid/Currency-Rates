@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/rates_container"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:paddingHorizontal="@dimen/_15sdp"
+  android:paddingVertical="@dimen/_15sdp"
+  tools:context=".features.fragments.ExchangeFragment">
+
+  <EditText
+    android:id="@+id/et_curr_value"
+    android:layout_width="0dp"
+    android:layout_height="@dimen/_35sdp"
+    android:layout_marginEnd="@dimen/_15sdp"
+    android:layout_marginBottom="@dimen/_15sdp"
+    android:imeOptions="actionGo"
+    android:inputType="numberDecimal"
+    android:textAppearance="@style/lato_16_regular"
+    android:textColor="@color/black"
+    app:layout_constraintEnd_toStartOf="@id/btn_curr_exchange"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+  <com.google.android.material.button.MaterialButton
+    android:id="@+id/btn_curr_exchange"
+    style="@style/Widget.MaterialComponents.Button.Default.Submit"
+    android:layout_width="@dimen/_50sdp"
+    android:layout_height="@dimen/_35sdp"
+    android:layout_gravity="center_horizontal"
+    android:text="@string/go"
+    android:textAppearance="@style/lato_14_bold"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+  <androidx.appcompat.widget.AppCompatSpinner
+    android:id="@+id/drp_currencies"
+    android:layout_width="@dimen/_150sdp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_15sdp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/btn_curr_exchange" />
+
+  <LinearLayout
+    android:id="@+id/ly_header"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_15sdp"
+    android:background="@color/main_blue"
+    android:orientation="horizontal"
+    android:padding="@dimen/_8sdp"
+    android:weightSum="3"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/drp_currencies">
+
+    <TextView
+      android:id="@+id/tv_curr_name"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:gravity="start"
+      android:text="@string/currency"
+      android:textAppearance="@style/lato_16_bold"
+      android:textColor="@color/blackdark" />
+
+    <TextView
+      android:id="@+id/tv_curr_rate"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:gravity="start"
+      android:text="@string/rate"
+      android:textAppearance="@style/lato_16_bold"
+      android:textColor="@color/blackdark" />
+
+    <TextView
+      android:id="@+id/tv_curr_value"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:gravity="start"
+      android:text="@string/value"
+      android:textAppearance="@style/lato_16_bold"
+      android:textColor="@color/blackdark" />
+
+  </LinearLayout>
+
+  <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/rv_rates"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:layout_marginTop="@dimen/_15sdp"
+    android:orientation="vertical"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/ly_header"
+    tools:listitem="@layout/item_currency" />
+
+  <TextView
+    android:id="@+id/tv_empty_rates"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:text="@string/no_rates"
+    android:textAppearance="@style/lato_18_bold"
+    android:textColor="@color/blackdark"
+    android:visibility="gone"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/ly_header" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

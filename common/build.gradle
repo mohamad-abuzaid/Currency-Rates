@@ -1,0 +1,17 @@
+apply plugin: 'com.android.library'
+apply from: '../config-android.gradle'
+apply from: '../config-properties.gradle'
+
+dependencies {
+  api project(':domain')
+
+  kotlin()
+  lifecycle()
+  dagger()
+  view()
+  rx()
+  jsonParse()
+  security()
+  debugging()
+  testing()
+}

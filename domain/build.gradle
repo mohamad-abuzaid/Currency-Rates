@@ -1,0 +1,17 @@
+apply plugin: 'com.android.library'
+apply from: '../config-android.gradle'
+apply from: '../config-properties.gradle'
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// DEPENDENCIES                                                                                   //
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+dependencies {
+  kotlin()
+  rx()
+  dagger()
+  jsonParse()
+  utils()
+  debugging()
+  testing()
+}
